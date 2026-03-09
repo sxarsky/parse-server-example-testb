@@ -7,7 +7,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "Starting Parse Server and MongoDB..."
-docker-compose up -d
+docker compose up -d
 
 echo "Waiting for services to be ready..."
 sleep 15
