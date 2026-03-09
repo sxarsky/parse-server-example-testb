@@ -6,9 +6,11 @@ import { ParseServer } from 'parse-server';
 import path from 'path';
 import http from 'http';
 import { config } from './config.js';
+import { itemsRouter } from './cloud/items.js';
 
 const __dirname = path.resolve();
 const app = express();
+app.use(express.json());
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
@@ -18,6 +20,9 @@ const mountPath = process.env.PARSE_MOUNT || '/parse';
 const server = new ParseServer(config);
 await server.start();
 app.use(mountPath, server.app);
+
+// Item CRUD routes
+app.use('/items', itemsRouter);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
