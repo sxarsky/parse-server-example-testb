@@ -1,0 +1,52 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: testbot-parse-mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=parse
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  parse-server:
+    image: parseplatform/parse-server:latest
+    container_name: testbot-parse-server
+    ports:
+      - "1337:1337"
+    environment:
+      - PARSE_SERVER_APPLICATION_ID=TestBotAppId
+      - PARSE_SERVER_MASTER_KEY=TestBotMasterKey123
+      - PARSE_SERVER_DATABASE_URI=mongodb://mongodb:27017/parse
+      - PARSE_SERVER_URL=http://localhost:1337/parse
+      - PARSE_SERVER_CLOUD=/parse-server/cloud/main.js
+      - PARSE_SERVER_MOUNT_PATH=/parse
+      - PARSE_SERVER_ALLOW_CLIENT_CLASS_CREATION=true
+      - PARSE_SERVER_ENABLE_EXPERIMENTAL_GRAPHQL_SUPPORT=true
+      - PARSE_SERVER_MOUNT_GRAPHQL=true
+      - PARSE_SERVER_GRAPHQL_PATH=/graphql
+      - PARSE_SERVER_LOG_LEVEL=info
+      - PARSE_SERVER_VERBOSE=false
+      - PARSE_SERVER_MASTER_KEY_IPS=0.0.0.0/0
+    volumes:
+      - ./cloud:/parse-server/cloud
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:1337/parse/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
