@@ -253,3 +253,7 @@ You can change the server URL in all of the open-source SDKs, but we're releasin
 [license-svg]: https://img.shields.io/badge/license-BSD-lightgrey.svg
 [license-link]: LICENSE
 [open-collective-link]: https://opencollective.com/parse-server
+
+## TestBot Integration
+
+This fork includes Skyramp TestBot integration for automated test maintenance. The TestBot workflow is configured to run on pull requests to help maintain and update tests as the codebase evolves.
