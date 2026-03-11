@@ -1,0 +1,33 @@
+# TestBot Configuration for Parse Server
+# Parse Server requires dual-header authentication
+
+# Application configuration
+application:
+  name: Parse Server Example
+  base_url: http://localhost:1337/parse
+
+# Authentication configuration
+# Parse Server requires BOTH headers for all requests
+authentication:
+  type: multi-header
+  headers:
+    # Required: Application ID (public identifier)
+    - name: X-Parse-Application-Id
+      value: TestBotAppId
+      required: true
+
+    # Required: Session Token (from auth_token_command) or Master Key
+    - name: X-Parse-Session-Token
+      value: ${SKYRAMP_TEST_TOKEN}
+      required: true
+
+  # Alternative: Use Master Key for admin operations
+  master_key:
+    header: X-Parse-Master-Key
+    value: TestBotMasterKey123
+
+# Test configuration
+test_defaults:
+  headers:
+    X-Parse-Application-Id: TestBotAppId
+    Content-Type: application/json

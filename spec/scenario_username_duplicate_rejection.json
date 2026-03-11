@@ -1,0 +1,54 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"duptest_1741690400\", \"password\": \"TestPass1\", \"email\": \"duptest_1741690400@example.com\"}",
+    "ResponseBody": "{\"objectId\": \"dup001obj\", \"sessionToken\": \"r:duptoken001\", \"createdAt\": \"2024-01-01T00:00:00.000Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/users",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:41:08.078Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"duptest_1741690400\", \"password\": \"TestPass1\", \"email\": \"duptest2_1741690400@example.com\"}",
+    "ResponseBody": "{\"code\": 142, \"error\": \"Username is already taken\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/users",
+    "QueryParams": {},
+    "StatusCode": 400,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:41:12.899Z",
+    "Scheme": "http"
+  }
+]

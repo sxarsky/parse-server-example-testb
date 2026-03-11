@@ -1,0 +1,106 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"verifytest_1741690331\", \"password\": \"TestPass1\", \"email\": \"verifytest_1741690331@example.com\"}",
+    "ResponseBody": "{\"objectId\": \"abc123obj\", \"sessionToken\": \"r:sesstoken123\", \"createdAt\": \"2024-01-01T00:00:00.000Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/users",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:13:38.078Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"email\": \"verifytest_1741690331@example.com\"}",
+    "ResponseBody": "{\"result\": {\"success\": true, \"message\": \"Verification email sent successfully\", \"token\": \"verifytoken123abc\"}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/functions/resendVerificationEmail",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:13:50.299Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"token\": \"verifytoken123abc\"}",
+    "ResponseBody": "{\"result\": {\"success\": true, \"message\": \"Email verified successfully\", \"username\": \"verifytest_1741690331\"}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/functions/verifyEmail",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:14:18.412Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"verifytest_1741690331\", \"password\": \"TestPass1\"}",
+    "ResponseBody": "{\"objectId\": \"abc123obj\", \"sessionToken\": \"r:newtoken456\", \"username\": \"verifytest_1741690331\", \"createdAt\": \"2024-01-01T00:00:00.000Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/login",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:14:26.527Z",
+    "Scheme": "http"
+  }
+]
