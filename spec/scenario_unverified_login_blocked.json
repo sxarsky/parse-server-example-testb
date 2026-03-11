@@ -1,0 +1,54 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"unveriftest_1741690331\", \"password\": \"TestPass1\", \"email\": \"unveriftest_1741690331@example.com\"}",
+    "ResponseBody": "{\"objectId\": \"xyz789obj\", \"sessionToken\": \"r:temptoken789\", \"createdAt\": \"2024-01-01T00:00:00.000Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/users",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:13:38.082Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"unveriftest_1741690331\", \"password\": \"TestPass1\"}",
+    "ResponseBody": "{\"code\": 205, \"error\": \"Please verify your email address before logging in. Check your email for the verification link.\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Parse-Application-Id": [
+        ""
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/parse/login",
+    "QueryParams": {},
+    "StatusCode": 400,
+    "Port": 1337,
+    "Timestamp": "2026-03-11T12:13:50.303Z",
+    "Scheme": "http"
+  }
+]
